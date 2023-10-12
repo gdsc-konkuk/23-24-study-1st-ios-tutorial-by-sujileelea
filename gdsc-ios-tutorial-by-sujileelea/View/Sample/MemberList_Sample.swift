@@ -11,9 +11,6 @@ struct MemberList_Sample: View {
     
     @State var showAddMemberModal: Bool = false
     
-    var questions: [String] = ["MBTI", "생일", "좋아하는 색", "주량"]
-    var answers: [String] = ["ENTJ", "941206", "보라색", "1병 반"]
-    
     var body: some View {
         VStack {
             //[ 배너 ]
