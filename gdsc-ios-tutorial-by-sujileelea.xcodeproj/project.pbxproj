@@ -12,9 +12,13 @@
 		09CDE7242AD7B0E1000D1F21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09CDE7232AD7B0E1000D1F21 /* Assets.xcassets */; };
 		09CDE7272AD7B0E1000D1F21 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09CDE7262AD7B0E1000D1F21 /* Preview Assets.xcassets */; };
 		09CDE72F2AD7B107000D1F21 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CDE72E2AD7B107000D1F21 /* EntryView.swift */; };
-		09CDE7312AD7B119000D1F21 /* TeamIntroduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CDE7302AD7B119000D1F21 /* TeamIntroduction.swift */; };
+		09CDE7312AD7B119000D1F21 /* MemberList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CDE7302AD7B119000D1F21 /* MemberList.swift */; };
 		09CDE7342AD7B27C000D1F21 /* EntryView_Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CDE7332AD7B27C000D1F21 /* EntryView_Sample.swift */; };
-		09CDE7362AD7B28B000D1F21 /* TeamIntroduction_Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CDE7352AD7B28B000D1F21 /* TeamIntroduction_Sample.swift */; };
+		09CDE7362AD7B28B000D1F21 /* MemberList_Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CDE7352AD7B28B000D1F21 /* MemberList_Sample.swift */; };
+		09CDE7382AD7CDED000D1F21 /* MemberCard_Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CDE7372AD7CDED000D1F21 /* MemberCard_Sample.swift */; };
+		09CDE73A2AD7F619000D1F21 /* AddMemberModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CDE7392AD7F619000D1F21 /* AddMemberModal.swift */; };
+		09CDE73C2AD7F626000D1F21 /* AddMemberModal_Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CDE73B2AD7F626000D1F21 /* AddMemberModal_Sample.swift */; };
+		09CDE73E2AD80193000D1F21 /* MemberCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CDE73D2AD80193000D1F21 /* MemberCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,9 +28,13 @@
 		09CDE7232AD7B0E1000D1F21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09CDE7262AD7B0E1000D1F21 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		09CDE72E2AD7B107000D1F21 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
-		09CDE7302AD7B119000D1F21 /* TeamIntroduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamIntroduction.swift; sourceTree = "<group>"; };
+		09CDE7302AD7B119000D1F21 /* MemberList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberList.swift; sourceTree = "<group>"; };
 		09CDE7332AD7B27C000D1F21 /* EntryView_Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView_Sample.swift; sourceTree = "<group>"; };
-		09CDE7352AD7B28B000D1F21 /* TeamIntroduction_Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamIntroduction_Sample.swift; sourceTree = "<group>"; };
+		09CDE7352AD7B28B000D1F21 /* MemberList_Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberList_Sample.swift; sourceTree = "<group>"; };
+		09CDE7372AD7CDED000D1F21 /* MemberCard_Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCard_Sample.swift; sourceTree = "<group>"; };
+		09CDE7392AD7F619000D1F21 /* AddMemberModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberModal.swift; sourceTree = "<group>"; };
+		09CDE73B2AD7F626000D1F21 /* AddMemberModal_Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberModal_Sample.swift; sourceTree = "<group>"; };
+		09CDE73D2AD80193000D1F21 /* MemberCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,11 +88,23 @@
 			isa = PBXGroup;
 			children = (
 				09CDE72E2AD7B107000D1F21 /* EntryView.swift */,
-				09CDE7302AD7B119000D1F21 /* TeamIntroduction.swift */,
-				09CDE7332AD7B27C000D1F21 /* EntryView_Sample.swift */,
-				09CDE7352AD7B28B000D1F21 /* TeamIntroduction_Sample.swift */,
+				09CDE7302AD7B119000D1F21 /* MemberList.swift */,
+				09CDE73D2AD80193000D1F21 /* MemberCard.swift */,
+				09CDE7392AD7F619000D1F21 /* AddMemberModal.swift */,
+				09CDE73F2AD801C1000D1F21 /* Sample */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		09CDE73F2AD801C1000D1F21 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				09CDE7332AD7B27C000D1F21 /* EntryView_Sample.swift */,
+				09CDE7352AD7B28B000D1F21 /* MemberList_Sample.swift */,
+				09CDE7372AD7CDED000D1F21 /* MemberCard_Sample.swift */,
+				09CDE73B2AD7F626000D1F21 /* AddMemberModal_Sample.swift */,
+			);
+			path = Sample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,9 +179,13 @@
 			files = (
 				09CDE7342AD7B27C000D1F21 /* EntryView_Sample.swift in Sources */,
 				09CDE7222AD7B0DE000D1F21 /* ContentView.swift in Sources */,
-				09CDE7362AD7B28B000D1F21 /* TeamIntroduction_Sample.swift in Sources */,
+				09CDE7362AD7B28B000D1F21 /* MemberList_Sample.swift in Sources */,
 				09CDE7202AD7B0DE000D1F21 /* gdsc_ios_tutorial_by_sujileeleaApp.swift in Sources */,
-				09CDE7312AD7B119000D1F21 /* TeamIntroduction.swift in Sources */,
+				09CDE7312AD7B119000D1F21 /* MemberList.swift in Sources */,
+				09CDE73E2AD80193000D1F21 /* MemberCard.swift in Sources */,
+				09CDE73A2AD7F619000D1F21 /* AddMemberModal.swift in Sources */,
+				09CDE7382AD7CDED000D1F21 /* MemberCard_Sample.swift in Sources */,
+				09CDE73C2AD7F626000D1F21 /* AddMemberModal_Sample.swift in Sources */,
 				09CDE72F2AD7B107000D1F21 /* EntryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
