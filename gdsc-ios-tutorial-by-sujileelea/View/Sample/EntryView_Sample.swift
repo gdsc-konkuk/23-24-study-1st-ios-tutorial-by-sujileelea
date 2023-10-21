@@ -66,6 +66,7 @@ struct EntryView_Sample: View {
                     })
                     
                     // [footer]
+                    
                     Text("tutorial by sujilee")
                     //텍스트의 표면색을 하얀색으로 칠하고, 투명도를 70%로 조정합니다.
                         .foregroundStyle(.white.opacity(0.7))

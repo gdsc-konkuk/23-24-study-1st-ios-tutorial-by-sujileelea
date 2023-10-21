@@ -9,11 +9,25 @@ import SwiftUI
 
 struct MemberCard_Sample: View {
     
+    @State var showEditMemberModal: Bool = false
+    
     var questions: [String] = ["MBTI", "생일", "좋아하는 색", "주량"]
-    var answers: [String] = ["ENTJ", "941206", "보라색", "1병 반"]
+    @Binding var member: Member
     
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+                Button(action: {
+                    showEditMemberModal = true
+                }, label: {
+                    Image(systemName: "square.and.pencil")
+                        .font(.system(size: 25, weight: .bold))
+                        .foregroundColor(.gray)
+                })
+                .padding(.top, -20)
+                .padding(-10)
+            }
             // [ 프로필 사진 ]
             Image("이수지_프로필")
                 //이미지의 사이즈를 내가 원하는대로 재조정
@@ -32,8 +46,8 @@ struct MemberCard_Sample: View {
                 .shadow(color: .mainPurple, radius: 1)
             // [ 이름 및 닉네임 ]
             VStack {
-                Text("이수지")
-                Text("sujileelea")
+                Text(member.name)
+                Text(member.nickname)
                 Rectangle()
                     //모서리 둥근 정도
                     .cornerRadius(3)
@@ -52,25 +66,31 @@ struct MemberCard_Sample: View {
                     }
                 }
                 VStack(alignment: .trailing, spacing: 10) {
-                    ForEach(answers, id: \.self) { answer in
-                        Text(answer)
-                    }
+                    Text(member.mbti)
+                    Text(member.birthday)
+                    Text(member.favoriteColor)
+                    Text(member.drinkingCapacity)
                 }
             }
             .font(.system(size: 19))
             .offset(y: 10)
         }
         .padding(67)
-        // [ 카드 테두리 [
+        // [ 카드 테두리 ]
         .overlay(
             RoundedRectangle(cornerRadius: 40)
                 .stroke(Color.mainPurple.opacity(0.9), lineWidth: 0.9)
                 //ScrollView에 침범당하는 것을 방지하는 패딩
                 .padding()
         )
+        // 모달 뷰를 띄우기 위한 modifier
+        //isPresented: 트리거, content: 띄울 뷰
+        .sheet(isPresented: $showEditMemberModal, content: {
+            EditMemberModal_Sample(member: $member)
+        })
     }
 }
 
-#Preview {
-    MemberCard_Sample()
-}
+//#Preview {
+//    MemberCard_Sample()
+//}
