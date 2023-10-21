@@ -9,13 +9,14 @@ import SwiftUI
 
 struct EditMemberModal_Sample: View {
     
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss) var dismiss
     
     var questions: [String] = ["이름", "닉네임", "MBTI", "생일", "좋아하는 색", "주량"]
     
     //변수의 변화를 감지할 수 있는 프로퍼리 래퍼인 @State
     //중요 개념이기 때문에 추후 설명
     @Binding var member: Member
+    @State private var showPicker: Bool = false
     
     var body: some View {
         ScrollView {
@@ -32,14 +33,7 @@ struct EditMemberModal_Sample: View {
                 .padding()
                 // [프로필 이미지 ]
                 VStack {
-                    Image("이수지_프로필")
-                    //이미지의 사이즈를 내가 원하는대로 재조정
-                        .resizable()
-                    //추후 설명
-                        .scaledToFill()
-                        .frame(width: 230, height: 230)
-                    //이미지를 Circle() 모양으로 자름
-                        .clipShape(Circle())
+                    ImagePicker(member: $member)
                 }
                 .padding()
                 .padding(.vertical)
@@ -88,8 +82,4 @@ struct EditMemberModal_Sample: View {
         }
         .padding(.horizontal)
     }
-}
-
-#Preview {
-    EditMemberModal_Sample(member: .constant(Member(name: "이수지", nickname: "sujileelea", mbti: "ENTJ", birthday: "1206", favoriteColor: "보라색", drinkingCapacity: "1병 반")))
 }

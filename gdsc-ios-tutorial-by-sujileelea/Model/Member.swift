@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct Member {
-    var name: String = "이수지"
-    var nickname: String = "sujileelea"
-    var mbti: String = "ENTJ"
-    var birthday: String = "1206"
-    var favoriteColor: String = "보라색"
-    var drinkingCapacity: String = "1병 반"
+struct Member: Hashable {
+    var profileImageData: Data?
+    var name: String = ""
+    var nickname: String = ""
+    var mbti: String = ""
+    var birthday: String = ""
+    var favoriteColor: String = ""
+    var drinkingCapacity: String = ""
 }

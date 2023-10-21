@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct MemberList_Sample: View {
-        
+    
     var questions: [String] = ["MBTI", "생일", "좋아하는 색", "주량"]
-//    @State var member: Member = Member()
-    @State var member: Member = Member()
+    @State var members: [Member] = []
+    @State var showAddMemberModal: Bool = false
+    @State var showEditMemberModal: Bool = false
     
     var body: some View {
         VStack {
@@ -37,25 +38,30 @@ struct MemberList_Sample: View {
             // [ 멤버 카드 목록 ]
             ScrollView {
                 VStack {
-                    MemberCard_Sample(member: $member)
+                    ForEach($members, id: \.self) { member in
+                        MemberCard_Sample(showEditMemberModal: $showEditMemberModal ,member: member)
+                            .sheet(isPresented: $showEditMemberModal, content: {
+                                EditMemberModal_Sample(member: member)
+                            })
+                    }
                 }
             }
         }
         // [ 화면 상단 툴바 ]
-//        .toolbar(content: {
-//            //멤버 등록 모달을 띄우는 값 트리거
-//            Button(action: {
-//                showAddMemberModal = true
-//            }, label: {
-//                Text("+")
-//                    .font(.system(size: 20))
-//            })
-//        })
-//        // 모달 뷰를 띄우기 위한 modifier
-//        //isPresented: 트리거, content: 띄울 뷰
-//        .sheet(isPresented: $showAddMemberModal, content: {
-//            EditMemberModal_Sample(member: $member)
-//        })
+        .toolbar(content: {
+            //멤버 등록 모달을 띄우는 값 트리거
+            Button(action: {
+                showAddMemberModal = true
+            }, label: {
+                Image(systemName: "plus")
+                    .font(.system(size: 15))
+            })
+        })
+        // 모달 뷰를 띄우기 위한 modifier
+        //isPresented: 트리거, content: 띄울 뷰
+        .sheet(isPresented: $showAddMemberModal, content: {
+            AddMemberModal_Sample(members: $members)
+        })
     }
 }
 

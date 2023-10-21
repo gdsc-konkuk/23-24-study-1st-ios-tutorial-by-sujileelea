@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09BC521C2AE38D5D007E5618 /* AddMemberModal_Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BC521B2AE38D5D007E5618 /* AddMemberModal_Sample.swift */; };
+		09BC52232AE3A036007E5618 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BC52222AE3A036007E5618 /* ImagePicker.swift */; };
 		09CDE7202AD7B0DE000D1F21 /* gdsc_ios_tutorial_by_sujileeleaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CDE71F2AD7B0DE000D1F21 /* gdsc_ios_tutorial_by_sujileeleaApp.swift */; };
 		09CDE7222AD7B0DE000D1F21 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CDE7212AD7B0DE000D1F21 /* ContentView.swift */; };
 		09CDE7242AD7B0E1000D1F21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09CDE7232AD7B0E1000D1F21 /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09BC521B2AE38D5D007E5618 /* AddMemberModal_Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberModal_Sample.swift; sourceTree = "<group>"; };
+		09BC52222AE3A036007E5618 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		09CDE71C2AD7B0DE000D1F21 /* gdsc-ios-tutorial-by-sujileelea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gdsc-ios-tutorial-by-sujileelea.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09CDE71F2AD7B0DE000D1F21 /* gdsc_ios_tutorial_by_sujileeleaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gdsc_ios_tutorial_by_sujileeleaApp.swift; sourceTree = "<group>"; };
 		09CDE7212AD7B0DE000D1F21 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,6 +54,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09BC52182AE38D21007E5618 /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				09CDE7332AD7B27C000D1F21 /* EntryView_Sample.swift */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
+		09BC52192AE38D28007E5618 /* MemberList */ = {
+			isa = PBXGroup;
+			children = (
+				09CDE7352AD7B28B000D1F21 /* MemberList_Sample.swift */,
+				09CDE7372AD7CDED000D1F21 /* MemberCard_Sample.swift */,
+			);
+			path = MemberList;
+			sourceTree = "<group>";
+		};
+		09BC521A2AE38D3F007E5618 /* ActionModal */ = {
+			isa = PBXGroup;
+			children = (
+				09BC521B2AE38D5D007E5618 /* AddMemberModal_Sample.swift */,
+				09CDE73B2AD7F626000D1F21 /* EditMemberModal_Sample.swift */,
+			);
+			path = ActionModal;
+			sourceTree = "<group>";
+		};
+		09BC521F2AE398FA007E5618 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				09BC52222AE3A036007E5618 /* ImagePicker.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		09CDE7132AD7B0DE000D1F21 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +111,7 @@
 				09CDE7212AD7B0DE000D1F21 /* ContentView.swift */,
 				09CDE75A2AE0F322000D1F21 /* Model */,
 				09CDE72D2AD7B0F3000D1F21 /* View */,
+				09BC521F2AE398FA007E5618 /* Image */,
 				09CDE7232AD7B0E1000D1F21 /* Assets.xcassets */,
 				09CDE7252AD7B0E1000D1F21 /* Preview Content */,
 			);
@@ -102,10 +141,9 @@
 		09CDE73F2AD801C1000D1F21 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
-				09CDE7332AD7B27C000D1F21 /* EntryView_Sample.swift */,
-				09CDE7352AD7B28B000D1F21 /* MemberList_Sample.swift */,
-				09CDE7372AD7CDED000D1F21 /* MemberCard_Sample.swift */,
-				09CDE73B2AD7F626000D1F21 /* EditMemberModal_Sample.swift */,
+				09BC52182AE38D21007E5618 /* Entry */,
+				09BC52192AE38D28007E5618 /* MemberList */,
+				09BC521A2AE38D3F007E5618 /* ActionModal */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -191,12 +229,14 @@
 				09CDE7342AD7B27C000D1F21 /* EntryView_Sample.swift in Sources */,
 				09CDE7222AD7B0DE000D1F21 /* ContentView.swift in Sources */,
 				09CDE7362AD7B28B000D1F21 /* MemberList_Sample.swift in Sources */,
+				09BC52232AE3A036007E5618 /* ImagePicker.swift in Sources */,
 				09CDE7202AD7B0DE000D1F21 /* gdsc_ios_tutorial_by_sujileeleaApp.swift in Sources */,
 				09CDE7312AD7B119000D1F21 /* MemberList.swift in Sources */,
 				09CDE73E2AD80193000D1F21 /* MemberCard.swift in Sources */,
 				09CDE73A2AD7F619000D1F21 /* AddMemberModal.swift in Sources */,
 				09CDE7382AD7CDED000D1F21 /* MemberCard_Sample.swift in Sources */,
 				09CDE73C2AD7F626000D1F21 /* EditMemberModal_Sample.swift in Sources */,
+				09BC521C2AE38D5D007E5618 /* AddMemberModal_Sample.swift in Sources */,
 				09CDE72F2AD7B107000D1F21 /* EntryView.swift in Sources */,
 				09CDE75C2AE0F32D000D1F21 /* Member.swift in Sources */,
 			);

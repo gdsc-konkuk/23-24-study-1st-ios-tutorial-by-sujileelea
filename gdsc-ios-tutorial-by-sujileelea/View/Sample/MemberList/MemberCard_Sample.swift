@@ -9,8 +9,7 @@ import SwiftUI
 
 struct MemberCard_Sample: View {
     
-    @State var showEditMemberModal: Bool = false
-    
+    @Binding var showEditMemberModal: Bool
     var questions: [String] = ["MBTI", "생일", "좋아하는 색", "주량"]
     @Binding var member: Member
     
@@ -31,27 +30,27 @@ struct MemberCard_Sample: View {
                 .offset(x: 20)
             }
             // [ 프로필 사진 ]
-            Image("이수지_프로필")
-                //이미지의 사이즈를 내가 원하는대로 재조정
+            ImagePicker(member: $member).profileImage
+            //이미지의 사이즈를 내가 원하는대로 재조정
                 .resizable()
-                //추후 설명
+            //추후 설명
                 .scaledToFill()
                 .frame(width: 230, height: 230)
-                //이미지를 Circle() 모양으로 자름
+            //이미지를 Circle() 모양으로 자름
                 .clipShape(Circle())
-                //사진 테두리
+            //사진 테두리
                 .overlay(
                     Circle()
                         .stroke(Color.white, lineWidth: 4)
                 )
-                //그림자 색 및 반경 조절
+            //그림자 색 및 반경 조절
                 .shadow(color: .mainPurple, radius: 1)
             // [ 이름 및 닉네임 ]
             VStack {
                 Text(member.name)
                 Text(member.nickname)
                 Rectangle()
-                    //모서리 둥근 정도
+                //모서리 둥근 정도
                     .cornerRadius(3)
                     .frame(width: 120, height: 4)
                     .foregroundColor(.mainPurple)
@@ -82,17 +81,8 @@ struct MemberCard_Sample: View {
         .overlay(
             RoundedRectangle(cornerRadius: 40)
                 .stroke(Color.mainPurple.opacity(0.9), lineWidth: 0.9)
-                //ScrollView에 침범당하는 것을 방지하는 패딩
+            //ScrollView에 침범당하는 것을 방지하는 패딩
                 .padding()
         )
-        // 모달 뷰를 띄우기 위한 modifier
-        //isPresented: 트리거, content: 띄울 뷰
-        .sheet(isPresented: $showEditMemberModal, content: {
-            EditMemberModal_Sample(member: $member)
-        })
     }
-}
-
-#Preview {
-    MemberCard_Sample(member: .constant(Member(name: "이수지", nickname: "sujileelea", mbti: "ENTJ", birthday: "1206", favoriteColor: "보라색", drinkingCapacity: "1병 반")))
 }
