@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddMemberModal_Sample: View {
+struct EditMemberModal_Sample: View {
     
     var contents: [String] = ["이름", "닉네임", "MBTI", "생일", "좋아하는 색", "주량"]
     
@@ -23,11 +23,15 @@ struct AddMemberModal_Sample: View {
     var body: some View {
         VStack {
             // [프로필 이미지 ]
-            VStack {
-                Image("Default_Profile_Image")
-            }
+            Image("이수지_프로필")
+                //이미지의 사이즈를 내가 원하는대로 재조정
+                .resizable()
+                //추후 설명
+                .scaledToFill()
+                .frame(width: 230, height: 230)
+                //이미지를 Circle() 모양으로 자름
+                .clipShape(Circle())
             .padding()
-            .padding(.vertical)
             // [ 세부 항목 ]
             HStack {
                 VStack(alignment: .leading, spacing: 35) {
@@ -41,6 +45,7 @@ struct AddMemberModal_Sample: View {
             }
             .padding()
         }
+        .padding(.bottom)
     }
     
     //반복되는 뷰 컴포넌트 재사용을 위한 ViewBuilder
@@ -68,9 +73,14 @@ struct AddMemberModal_Sample: View {
             }
         }
         .padding(.horizontal)
+        .toolbar {
+            ToolbarItem(content: {
+                Text("저장")
+            })
+        }
     }
 }
 
 #Preview {
-    AddMemberModal_Sample()
+    EditMemberModal_Sample()
 }

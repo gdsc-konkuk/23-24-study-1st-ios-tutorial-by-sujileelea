@@ -14,6 +14,15 @@ struct MemberCard_Sample: View {
     
     var body: some View {
         VStack {
+            // [ 수정 버튼]
+            HStack {
+                Spacer()
+                Image(systemName: "square.and.pencil")
+                    .font(.system(size: 30))
+                    .foregroundColor(.mainGray)
+            }
+            .padding(.top, -25)
+            .offset(x: 20)
             // [ 프로필 사진 ]
             Image("이수지_프로필")
                 //이미지의 사이즈를 내가 원하는대로 재조정

@@ -31,8 +31,6 @@ struct MemberList_Sample: View {
             .background(RoundedRectangle(cornerRadius: 35).fill(Color.mainPurple.opacity(0.2)))
             //배너 배경 주변의 패딩
             .padding()
-            .padding(.bottom, 25)
-            .padding(.top, 40)
             // [ 멤버 카드 목록 ]
             ScrollView {
                 VStack {
@@ -53,7 +51,7 @@ struct MemberList_Sample: View {
         // 모달 뷰를 띄우기 위한 modifier
         //isPresented: 트리거, content: 띄울 뷰
         .sheet(isPresented: $showAddMemberModal, content: {
-            AddMemberModal_Sample()
+            EditMemberModal_Sample()
         })
     }
 }
