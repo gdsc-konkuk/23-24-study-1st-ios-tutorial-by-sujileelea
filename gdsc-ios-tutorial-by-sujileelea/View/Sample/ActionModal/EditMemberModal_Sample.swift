@@ -31,12 +31,12 @@ struct EditMemberModal_Sample: View {
                     })
                 }
                 .padding()
+                .padding(.top)
                 // [프로필 이미지 ]
                 VStack {
                     ImagePicker(member: $member)
                 }
                 .padding()
-                .padding(.vertical)
                 // [ 세부 항목 ]
                 HStack {
                     VStack(alignment: .leading, spacing: 35) {
@@ -49,7 +49,7 @@ struct EditMemberModal_Sample: View {
                     }
                 }
             }
-            .padding(.bottom, 40)
+            .padding(.vertical)
         }
     }
     

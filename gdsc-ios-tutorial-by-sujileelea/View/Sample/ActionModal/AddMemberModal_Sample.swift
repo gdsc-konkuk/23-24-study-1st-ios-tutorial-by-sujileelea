@@ -32,9 +32,11 @@ struct AddMemberModal_Sample: View {
                     })
                 }
                 .padding()
+                .padding(.top)
                 VStack {
                     // [ 프로필 이미지 피커 ]
                     ImagePicker(member: $newMember)
+                        .padding(.bottom, 20)
                     // [ 세부 항목 ]
                     HStack {
                         VStack(alignment: .leading, spacing: 35) {
@@ -47,8 +49,8 @@ struct AddMemberModal_Sample: View {
                         }
                     }
                 }
-                .padding(.bottom, 40)
             }
+            .padding(.vertical)
         }
     }
     

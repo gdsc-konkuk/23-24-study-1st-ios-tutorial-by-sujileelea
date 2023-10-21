@@ -13,6 +13,7 @@ struct MemberList_Sample: View {
     @State var members: [Member] = []
     @State var showAddMemberModal: Bool = false
     @State var showEditMemberModal: Bool = false
+    @State var memberToEdit: Member = Member()
     
     var body: some View {
         VStack {
@@ -38,11 +39,8 @@ struct MemberList_Sample: View {
             // [ 멤버 카드 목록 ]
             ScrollView {
                 VStack {
-                    ForEach($members, id: \.self) { member in
-                        MemberCard_Sample(showEditMemberModal: $showEditMemberModal ,member: member)
-                            .sheet(isPresented: $showEditMemberModal, content: {
-                                EditMemberModal_Sample(member: member)
-                            })
+                    ForEach($members, id: \.id) { member in
+                        MemberCard_Sample(showEditMemberModal: $showEditMemberModal ,memberToDisplay: member, memberToEdit: $memberToEdit)
                     }
                 }
             }
@@ -61,6 +59,9 @@ struct MemberList_Sample: View {
         //isPresented: 트리거, content: 띄울 뷰
         .sheet(isPresented: $showAddMemberModal, content: {
             AddMemberModal_Sample(members: $members)
+        })
+        .sheet(isPresented: $showEditMemberModal, content: {
+            EditMemberModal_Sample(member: $memberToEdit)
         })
     }
 }

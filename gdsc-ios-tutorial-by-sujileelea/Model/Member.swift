@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct Member: Hashable {
+struct Member: Identifiable {
+    
+    var id: UUID = UUID()
     var profileImageData: Data?
     var name: String = ""
     var nickname: String = ""

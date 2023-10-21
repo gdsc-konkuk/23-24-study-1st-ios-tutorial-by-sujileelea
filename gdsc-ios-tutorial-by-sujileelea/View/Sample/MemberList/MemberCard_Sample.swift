@@ -11,7 +11,8 @@ struct MemberCard_Sample: View {
     
     @Binding var showEditMemberModal: Bool
     var questions: [String] = ["MBTI", "생일", "좋아하는 색", "주량"]
-    @Binding var member: Member
+    @Binding var memberToDisplay: Member
+    @Binding var memberToEdit: Member
     
     var body: some View {
         VStack {
@@ -19,6 +20,7 @@ struct MemberCard_Sample: View {
             HStack {
                 Spacer()
                 Button(action: {
+                    memberToEdit = memberToDisplay
                     showEditMemberModal = true
                 }, label: {
                     Image(systemName: "square.and.pencil")
@@ -30,7 +32,7 @@ struct MemberCard_Sample: View {
                 .offset(x: 20)
             }
             // [ 프로필 사진 ]
-            ImagePicker(member: $member).profileImage
+            ImagePicker(member: $memberToDisplay).profileImage
             //이미지의 사이즈를 내가 원하는대로 재조정
                 .resizable()
             //추후 설명
@@ -47,8 +49,8 @@ struct MemberCard_Sample: View {
                 .shadow(color: .mainPurple, radius: 1)
             // [ 이름 및 닉네임 ]
             VStack {
-                Text(member.name)
-                Text(member.nickname)
+                Text(memberToDisplay.name)
+                Text(memberToDisplay.nickname)
                 Rectangle()
                 //모서리 둥근 정도
                     .cornerRadius(3)
@@ -67,10 +69,10 @@ struct MemberCard_Sample: View {
                     }
                 }
                 VStack(alignment: .trailing, spacing: 10) {
-                    Text(member.mbti)
-                    Text(member.birthday)
-                    Text(member.favoriteColor)
-                    Text(member.drinkingCapacity)
+                    Text(memberToDisplay.mbti)
+                    Text(memberToDisplay.birthday)
+                    Text(memberToDisplay.favoriteColor)
+                    Text(memberToDisplay.drinkingCapacity)
                 }
             }
             .font(.system(size: 19))

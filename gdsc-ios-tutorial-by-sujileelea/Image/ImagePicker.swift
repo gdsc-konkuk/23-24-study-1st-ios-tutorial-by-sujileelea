@@ -51,7 +51,5 @@ struct ImagePicker: View {
                 }
             }
         }
-        .padding()
-        .padding(.vertical)
     }
 }
