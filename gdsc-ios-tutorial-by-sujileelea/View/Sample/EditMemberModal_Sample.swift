@@ -18,41 +18,44 @@ struct EditMemberModal_Sample: View {
     @Binding var member: Member
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Button(action: {
-                    dismiss()
-                }, label: {
-                    Text("저장")
-                        .font(.system(size: 20))
-                })
-            }
-            .padding()
-            // [프로필 이미지 ]
+        ScrollView {
             VStack {
-                Image("이수지_프로필")
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Text("저장")
+                            .font(.system(size: 20))
+                    })
+                }
+                .padding()
+                // [프로필 이미지 ]
+                VStack {
+                    Image("이수지_프로필")
                     //이미지의 사이즈를 내가 원하는대로 재조정
-                    .resizable()
+                        .resizable()
                     //추후 설명
-                    .scaledToFill()
-                    .frame(width: 230, height: 230)
+                        .scaledToFill()
+                        .frame(width: 230, height: 230)
                     //이미지를 Circle() 모양으로 자름
-                    .clipShape(Circle())
-            }
-            .padding()
-            .padding(.vertical)
-            // [ 세부 항목 ]
-            HStack {
-                VStack(alignment: .leading, spacing: 35) {
-                    CustomTextField(question: "이름", content: member.name, textBinding: $member.name)
-                    CustomTextField(question: "닉네임", content: member.nickname, textBinding: $member.nickname)
-                    CustomTextField(question: "MBTI", content: member.mbti, textBinding: $member.mbti)
-                    CustomTextField(question: "생일", content: member.birthday, textBinding: $member.birthday)
-                    CustomTextField(question: "좋아하는 색", content: member.favoriteColor, textBinding: $member.favoriteColor)
-                    CustomTextField(question: "주량", content: member.drinkingCapacity, textBinding: $member.drinkingCapacity)
+                        .clipShape(Circle())
+                }
+                .padding()
+                .padding(.vertical)
+                // [ 세부 항목 ]
+                HStack {
+                    VStack(alignment: .leading, spacing: 35) {
+                        CustomTextField(question: "이름", content: member.name, textBinding: $member.name)
+                        CustomTextField(question: "닉네임", content: member.nickname, textBinding: $member.nickname)
+                        CustomTextField(question: "MBTI", content: member.mbti, textBinding: $member.mbti)
+                        CustomTextField(question: "생일", content: member.birthday, textBinding: $member.birthday)
+                        CustomTextField(question: "좋아하는 색", content: member.favoriteColor, textBinding: $member.favoriteColor)
+                        CustomTextField(question: "주량", content: member.drinkingCapacity, textBinding: $member.drinkingCapacity)
+                    }
                 }
             }
+            .padding(.bottom, 40)
         }
     }
     

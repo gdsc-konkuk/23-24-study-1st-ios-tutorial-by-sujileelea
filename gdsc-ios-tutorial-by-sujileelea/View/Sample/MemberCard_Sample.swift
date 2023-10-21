@@ -16,17 +16,19 @@ struct MemberCard_Sample: View {
     
     var body: some View {
         VStack {
+            // [수정 버튼]
             HStack {
                 Spacer()
                 Button(action: {
                     showEditMemberModal = true
                 }, label: {
                     Image(systemName: "square.and.pencil")
-                        .font(.system(size: 25, weight: .bold))
+                        .font(.system(size: 25))
                         .foregroundColor(.gray)
                 })
                 .padding(.top, -20)
                 .padding(-10)
+                .offset(x: 20)
             }
             // [ 프로필 사진 ]
             Image("이수지_프로필")
@@ -91,6 +93,6 @@ struct MemberCard_Sample: View {
     }
 }
 
-//#Preview {
-//    MemberCard_Sample()
-//}
+#Preview {
+    MemberCard_Sample(member: .constant(Member(name: "이수지", nickname: "sujileelea", mbti: "ENTJ", birthday: "1206", favoriteColor: "보라색", drinkingCapacity: "1병 반")))
+}

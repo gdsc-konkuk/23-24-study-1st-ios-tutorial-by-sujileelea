@@ -30,11 +30,10 @@ struct MemberList_Sample: View {
             }
             //HStack 주변의 패딩
             .padding()
+            //패딩을 포함한 영역의 background
             .background(RoundedRectangle(cornerRadius: 35).fill(Color.mainPurple.opacity(0.2)))
             //배너 배경 주변의 패딩
             .padding()
-            .padding(.bottom, 25)
-            .padding(.top, 40)
             // [ 멤버 카드 목록 ]
             ScrollView {
                 VStack {
