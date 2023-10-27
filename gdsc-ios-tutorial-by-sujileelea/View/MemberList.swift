@@ -56,7 +56,7 @@ struct MemberList: View {
         })
         
         .sheet(isPresented: $showAddMemberModal, content: {
-            EditMemberModal();
+            AddMemberModal();
         })
     }
 }

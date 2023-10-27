@@ -10,6 +10,8 @@ import SwiftUI
 
 struct MemberCard: View {
     
+    @State var showEditMemberModal: Bool = false;
+    
     var infoList: [String] = ["MBTI", "생일", "좋아하는 색", "주량"]
     var answers: [String] = ["ISFP", "000801", "하늘색", "1병"]
     
@@ -23,9 +25,13 @@ struct MemberCard: View {
                     // 수정 항목 추가
                     HStack {
                         Spacer()
-                        Image(systemName: "square.and.pencil")
-                            .font(.system(size: 30))
-                            .foregroundColor(.mainGray)
+                        Button(action: {
+                            showEditMemberModal = true;
+                        }, label: {
+                            Image(systemName: "square.and.pencil")
+                                .font(.system(size: 30))
+                                .foregroundColor(.mainGray)
+                        })
                     }
                     .padding(.trailing, 30)
                     .padding(.top, 30)
@@ -64,8 +70,6 @@ struct MemberCard: View {
                                 Text(question)
                                     .fontWeight(.semibold)
                             }
-                            
-                            
                         }
                         VStack(alignment: .trailing) {
                             ForEach(answers, id: \.self){
@@ -77,6 +81,10 @@ struct MemberCard: View {
                     Spacer()
                 }
             }
+        // showEditMemberModal
+        .sheet(isPresented: $showEditMemberModal, content: {
+            EditMemberModal();
+        })
     }
 }
 
