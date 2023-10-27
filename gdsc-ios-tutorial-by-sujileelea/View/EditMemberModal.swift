@@ -84,13 +84,19 @@ struct EditMemberModal: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(content)
-                    .font(.system(size: 20))
+                    .font(.system(size: 21, weight: .semibold))
                     .foregroundStyle(.mainPurple)
             }
             HStack {
-                TextField("", text: textBinding)
-                Rectangle()
-                    .frame(width: 200, height: 0.5)
+                Spacer()
+                VStack {
+                    TextField("", text: textBinding)
+                        .frame(width: 200)
+                        .foregroundColor(.mainGray)
+                        .font(.system(size: 20))
+                    Rectangle()
+                        .frame(width: 200, height: 0.5)
+                }
             }
         }
     }
