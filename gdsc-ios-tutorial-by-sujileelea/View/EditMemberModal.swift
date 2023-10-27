@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddMemberModal: View {
+struct EditMemberModal: View {
     
     // 반복되는
     var contents: [String] = ["이름", "닉네임", "MBTI", "생일", "좋아하는 색", "주량"]
@@ -80,6 +80,6 @@ struct AddMemberModal: View {
 }
 
 #Preview {
-    AddMemberModal()
+    EditMemberModal()
 }
 
