@@ -47,8 +47,13 @@ struct AddMemberModal: View {
             // 반복되는 구현 -> 함수화하기
             // 가로 정렬된 HStack을 겹겹히 쌓을 것
             HStack {
-                VStack {
+                VStack(spacing: 44) {
                     CustomTextField(content: "이름", textBinding: $name)
+                    CustomTextField(content: "닉네임", textBinding: $nickname)
+                    CustomTextField(content: "MBTI", textBinding: $mbti)
+                    CustomTextField(content: "생일", textBinding: $birth)
+                    CustomTextField(content: "좋아하는 색", textBinding: $color)
+                    CustomTextField(content: "주량", textBinding: $alcohol)
                 }
             }
             .font(.system(size: 20))
@@ -60,12 +65,15 @@ struct AddMemberModal: View {
     @ViewBuilder
     func CustomTextField(content: String, textBinding: Binding<String>) -> some View {
         HStack {
-            VStack {
+            VStack(alignment: .leading) {
                 Text(content)
+                    .font(.system(size: 20))
+                    .foregroundStyle(.mainPurple)
             }
             HStack {
                 TextField("", text: textBinding)
                 Rectangle()
+                    .frame(width: 200, height: 1)
             }
         }
     }
