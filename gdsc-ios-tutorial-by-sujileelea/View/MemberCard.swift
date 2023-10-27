@@ -9,7 +9,6 @@ import SwiftUI
 
 
 struct MemberCard: View {
-    @State private var editProfile = false
     
     var infoList: [String] = ["MBTI", "생일", "좋아하는 색", "주량"]
     var answers: [String] = ["ISFP", "000801", "하늘색", "1병"]
@@ -21,10 +20,17 @@ struct MemberCard: View {
             .foregroundColor(.white)
             .overlay {
                 VStack {
-                    Button(action: {
-                        self.editProfile = true
-                    }){
-                        Image("profile_image")
+                    // 수정 항목 추가
+                    HStack {
+                        Spacer()
+                        Image(systemName: "square.and.pencil")
+                            .font(.system(size: 30))
+                            .foregroundColor(.mainGray)
+                    }
+                    .padding(.trailing, 30)
+                    .padding(.top, 30)
+                    Spacer()
+                    Image("profile_image")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 206, height: 206)
@@ -34,12 +40,7 @@ struct MemberCard: View {
                                     .stroke(Color.white, lineWidth: 4)
                             }
                             .shadow(color: Color.cyan, radius: 1)
-                            .sheet(isPresented: $editProfile, content: {
-                                // EditProfile!
-                                // do_something()
-                            })
-                    }
-                    .padding(.bottom)
+                            .padding(.bottom)
                     VStack {
                         // Kor Name
                         Text("박성근")
@@ -53,10 +54,6 @@ struct MemberCard: View {
                         .padding(.bottom, 40)
                     HStack (spacing: 75){
                         VStack(alignment: .leading){
-//                            Text("MBTI")
-//                            Text("생일")
-//                            Text("좋아하는 색")
-//                            Text("주량")
                             //Foreach
                             // 각 item의 id를 정해주도록 할 수 있음.
                             // Array 내부 요소가 가지고 있는 값 자체를 id로 가지게 해줌.
@@ -71,16 +68,13 @@ struct MemberCard: View {
                             
                         }
                         VStack(alignment: .trailing) {
-//                            Text("ISFP")
-//                            Text("000801")
-//                            Text("하늘색")
-//                            Text("1병")
                             ForEach(answers, id: \.self){
                                 answer in
                                 Text(answer)
                             }
                         }
                     }
+                    Spacer()
                 }
             }
     }

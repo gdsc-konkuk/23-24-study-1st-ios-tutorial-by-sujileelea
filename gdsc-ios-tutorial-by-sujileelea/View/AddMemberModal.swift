@@ -9,6 +9,9 @@ import SwiftUI
 
 struct AddMemberModal: View {
     
+    // 반복되는
+    var contents: [String] = ["이름", "닉네임", "MBTI", "생일", "좋아하는 색", "주량"]
+    
     @State var name: String = ""
     @State var nickname: String = ""
     @State var mbti: String = ""
@@ -41,72 +44,29 @@ struct AddMemberModal: View {
                 }
                 .padding(.bottom, 30)
             // Korean Info
-            VStack(spacing: 45){
-                HStack {
-                    Text("이름")
-                        .foregroundColor(.mainPurple)
-                    Spacer()
-                    VStack(alignment: .trailing, spacing: 0) {
-                        Text("박성근")
-                        Rectangle()
-                            .frame(width: 180, height: 1)
-                    }
-                }
-                HStack {
-                    Text("닉네임")
-                        .foregroundColor(.mainPurple)
-                    Spacer()
-                    VStack(alignment: .trailing, spacing: 0) {
-                        Text("seonggpa")
-                        Rectangle()
-                            .frame(width: 180, height: 1)
-                    }
-                }
-                HStack {
-                    Text("MBTI")
-                        .foregroundColor(.mainPurple)
-                    Spacer()
-                    VStack(alignment: .trailing, spacing: 0) {
-                        Text("ISFP")
-                        Rectangle()
-                            .frame(width: 180, height: 1)
-                    }
-                }
-                HStack {
-                    Text("생일")
-                        .foregroundColor(.mainPurple)
-                    Spacer()
-                    VStack(alignment: .trailing, spacing: 0) {
-                        Text("000801")
-                        Rectangle()
-                            .frame(width: 180, height: 1)
-                    }
-                }
-                HStack {
-                    Text("좋아하는 색")
-                        .foregroundColor(.mainPurple)
-                    Spacer()
-                    VStack(alignment: .trailing, spacing: 0) {
-                        Text("하늘색")
-                        Rectangle()
-                            .frame(width: 180, height: 1)
-                    }
-                }
-                HStack {
-                    Text("주량")
-                        .foregroundColor(.mainPurple)
-                    Spacer()
-                    VStack(alignment: .trailing, spacing: 0) {
-                        Text("1병")
-                        Rectangle()
-                            .frame(width: 180, height: 1)
-                    }
+            // 반복되는 구현 -> 함수화하기
+            // 가로 정렬된 HStack을 겹겹히 쌓을 것
+            HStack {
+                VStack {
+                    CustomTextField(content: "이름", textBinding: $name)
                 }
             }
             .font(.system(size: 20))
             .foregroundColor(.gray)
-            .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.25), radius: 0.1, x: 0, y: 4)
             .padding(45)
+        }
+    }
+    
+    @ViewBuilder
+    func CustomTextField(content: String, textBinding: Binding<String>) -> some View {
+        HStack {
+            VStack {
+                Text(content)
+            }
+            HStack {
+                TextField("", text: textBinding)
+                Rectangle()
+            }
         }
     }
 }
