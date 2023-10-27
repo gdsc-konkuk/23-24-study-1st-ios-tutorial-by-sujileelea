@@ -8,13 +8,22 @@
 import SwiftUI
 
 struct MemberCard: View {
+    @State private var isShowing = false
     var body: some View {
         VStack(spacing: 20) {
+            // 수정 버튼
             HStack {
                 Spacer()
-                Image(systemName: "square.and.pencil")
-                    .font(.system(size: 20))
-                    .foregroundColor(.mainGray)
+                Button(action: {
+                    isShowing = true
+                }, label: {
+                    Image(systemName: "square.and.pencil")
+                        .font(.system(size: 20))
+                        .foregroundColor(.mainGray)
+                })
+                .popover(isPresented: $isShowing) {
+                    EditMemberModal()
+                }
             }
             .padding()
             
