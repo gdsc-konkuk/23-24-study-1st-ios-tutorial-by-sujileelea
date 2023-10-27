@@ -12,12 +12,12 @@ struct EditMemberModal: View {
     // 반복되는
     var contents: [String] = ["이름", "닉네임", "MBTI", "생일", "좋아하는 색", "주량"]
     
-    @State var name: String = ""
-    @State var nickname: String = ""
-    @State var mbti: String = ""
-    @State var birth: String = ""
-    @State var color: String = ""
-    @State var alcohol: String = ""
+    @State var name: String = Member().name
+    @State var nickname: String = Member().nickname
+    @State var mbti: String = Member().mbti
+    @State var birthday: String = Member().birthday
+    @State var favoriteColor: String = Member().favoriteColor
+    @State var drinkingCapacity: String = Member().drinkingCapacity
     
     var body: some View {
         VStack {
@@ -28,7 +28,8 @@ struct EditMemberModal: View {
                 }, label: {
                     Text("저장")
                 })
-                .padding()
+                .padding(.top, 30)
+                .padding(.trailing, 20)
             }
             Spacer()
             // Image Box
@@ -61,9 +62,9 @@ struct EditMemberModal: View {
                     CustomTextField(content: "이름", textBinding: $name)
                     CustomTextField(content: "닉네임", textBinding: $nickname)
                     CustomTextField(content: "MBTI", textBinding: $mbti)
-                    CustomTextField(content: "생일", textBinding: $birth)
-                    CustomTextField(content: "좋아하는 색", textBinding: $color)
-                    CustomTextField(content: "주량", textBinding: $alcohol)
+                    CustomTextField(content: "생일", textBinding: $birthday)
+                    CustomTextField(content: "좋아하는 색", textBinding: $favoriteColor)
+                    CustomTextField(content: "주량", textBinding: $drinkingCapacity)
                 }
             }
             .font(.system(size: 20))
@@ -71,18 +72,18 @@ struct EditMemberModal: View {
             .padding(40)
         }
         // 왜 toolbar가 안뜰까?
-//        .toolbar {
-//            ToolbarItem(content: {
-//                Text("저장")
-//                    .font(.system(size: 20))
-//            })
-//        }
+        //        .toolbar {
+        //            ToolbarItem(content: {
+        //                Text("저장")
+        //                    .font(.system(size: 20))
+        //            })
+        //        }
     }
     
     @ViewBuilder
     func CustomTextField(content: String, textBinding: Binding<String>) -> some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack {
                 Text(content)
                     .font(.system(size: 21, weight: .semibold))
                     .foregroundStyle(.mainPurple)

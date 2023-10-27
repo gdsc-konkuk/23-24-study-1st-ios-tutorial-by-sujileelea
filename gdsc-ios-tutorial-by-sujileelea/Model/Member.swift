@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct Member {
-    var name: String = "이수지"
-    var nickname: String = "sujileelea"
-    var mbti: String = "ENTJ"
-    var birthday: String = "1206"
-    var favoriteColor: String = "보라색"
+    var name: String = "박성근"
+    var nickname: String = "seonggpa"
+    var mbti: String = "ISFP"
+    var birthday: String = "000801"
+    var favoriteColor: String = "하늘색"
     var drinkingCapacity: String = "1병 반"
 }
