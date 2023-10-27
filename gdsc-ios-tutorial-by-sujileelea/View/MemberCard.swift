@@ -33,6 +33,10 @@ struct MemberCard: View {
                                     .font(.system(size: 30))
                                     .foregroundColor(.mainGray)
                             })
+                            // showEditMemberModal
+                            .sheet(isPresented: $showEditMemberModal, content: {
+                                EditMemberModal();
+                            })
                         }
                         .padding(.trailing, 30)
                         .padding(.top, 30)
@@ -83,10 +87,6 @@ struct MemberCard: View {
                     }
                 }
         }
-        // showEditMemberModal
-        .sheet(isPresented: $showEditMemberModal, content: {
-            EditMemberModal();
-        })
     }
 }
 

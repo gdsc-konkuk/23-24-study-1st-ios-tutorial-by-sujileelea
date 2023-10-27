@@ -9,6 +9,8 @@ import SwiftUI
 
 struct EditMemberModal: View {
     
+    @Environment(\.dismiss) private var dismiss
+    
     // 반복되는
     var contents: [String] = ["이름", "닉네임", "MBTI", "생일", "좋아하는 색", "주량"]
     
@@ -24,7 +26,8 @@ struct EditMemberModal: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    // Save Input Data
+                    // Save Input Data & Close
+                    dismiss()
                 }, label: {
                     Text("저장")
                 })
@@ -106,4 +109,3 @@ struct EditMemberModal: View {
 #Preview {
     EditMemberModal()
 }
-
