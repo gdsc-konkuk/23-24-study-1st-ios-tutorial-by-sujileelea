@@ -36,16 +36,18 @@ struct EditMemberModal: View {
             }
             Spacer()
             // Image Box
-            Image("Default_Profile_Image")
+            Image("profile_image")
                 .resizable()
-                .scaledToFill()
+                .scaledToFit()
                 .frame(width: 201, height: 201)
+                .clipShape(Circle())
                 .overlay {
                     HStack{
                         Spacer()
                         //Image Edit button
                         Button(action: {
                             // Image Picker
+                            // Album 접근 권한 설정. How?
                         }, label: {
                             VStack{
                                 Spacer()
