@@ -21,6 +21,16 @@ struct EditMemberModal: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+                Button(action: {
+                    // Save Input Data
+                }, label: {
+                    Text("저장")
+                })
+                .padding()
+            }
+            Spacer()
             // Image Box
             Image("Default_Profile_Image")
                 .resizable()
@@ -58,8 +68,15 @@ struct EditMemberModal: View {
             }
             .font(.system(size: 20))
             .foregroundColor(.gray)
-            .padding(45)
+            .padding(40)
         }
+        // 왜 toolbar가 안뜰까?
+//        .toolbar {
+//            ToolbarItem(content: {
+//                Text("저장")
+//                    .font(.system(size: 20))
+//            })
+//        }
     }
     
     @ViewBuilder
@@ -73,7 +90,7 @@ struct EditMemberModal: View {
             HStack {
                 TextField("", text: textBinding)
                 Rectangle()
-                    .frame(width: 200, height: 1)
+                    .frame(width: 200, height: 0.5)
             }
         }
     }
