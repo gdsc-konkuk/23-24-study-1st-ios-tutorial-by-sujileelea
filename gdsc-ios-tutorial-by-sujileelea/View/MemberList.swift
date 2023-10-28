@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MemberList: View {
+    @State var member: Member = Member()
+    
     var body: some View {
         VStack(spacing: 20) {
             HStack {
@@ -38,7 +40,7 @@ struct MemberList: View {
 //                .padding()
           
             ScrollView {
-                MemberCard()
+                MemberCard(member: $member)
             }
         }
     }
