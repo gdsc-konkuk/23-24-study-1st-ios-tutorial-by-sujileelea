@@ -8,20 +8,15 @@
 import SwiftUI
 
 struct MemberInfo: Identifiable {
-    var id: String { name }
-    let name: String
-    let content: String
+    var id: String { question }
+    let question: String
+    let answer: String
 }
 
 struct EditMemberModal: View {
     
-    var memberInfo: [MemberInfo] = [
-        MemberInfo(name: "이름", content: "이수지"),
-        MemberInfo(name: "닉네임", content: "sujilee"),
-        MemberInfo(name: "MBTI", content: "ENTJ"),
-        MemberInfo(name: "생일", content: "941206"),
-        MemberInfo(name: "좋아하는 색", content: "보라색"),
-        MemberInfo(name: "주량", content: "1병 반")]
+    let questions: [String] = ["이름", "닉네임", "MBTI", "생일", "좋아하는 색", "주량"]
+    @Binding var member: Member
     
     var body: some View {
         VStack(spacing: 40) {
@@ -37,28 +32,38 @@ struct EditMemberModal: View {
             Image("Default_Profile_Image")
             
             // 정보
-            ForEach(memberInfo) { item in
-                HStack {
-                    Text(item.name)
-                        .foregroundStyle(.mainPurple)
-                    Spacer()
-                    VStack(alignment: .trailing, spacing: 3) {
-                        Text(item.content)
-                            .foregroundStyle(.mainGray)
-                        Rectangle()
-                            .frame(width: 180, height: 0.5)
-                            .foregroundColor(.mainGray)
-                    }
-                }
-                .font(.system(size: 20))
-                
+            VStack(spacing: 30) {
+                CustomTextField(question: questions[0], inputText: $member.name)
+                CustomTextField(question: questions[1], inputText: $member.nickname)
+                CustomTextField(question: questions[2], inputText: $member.mbti)
+                CustomTextField(question: questions[3], inputText: $member.birthday)
+                CustomTextField(question: questions[4], inputText: $member.favoriteColor)
+                CustomTextField(question: questions[5], inputText: $member.drinkingCapacity)
             }
         }
         .shadow(color: .black.opacity(0.25), radius: 2,x: 0, y: 4)
         .padding(.horizontal, 50)
     }
+    
+    @ViewBuilder
+    func CustomTextField(question: String, inputText: Binding<String>) -> some View {
+        HStack {
+            Text(question)
+                .foregroundStyle(.mainPurple)
+            Spacer()
+            VStack(alignment: .trailing, spacing: 3) {
+                TextField("", text: inputText)
+                    .foregroundColor(.mainGray)
+                Rectangle()
+                    .frame(width: 180, height: 0.5)
+                    .foregroundColor(.mainGray)
+            }
+            .frame(width: 180)
+        }
+        .font(.system(size: 20))
+    }
 }
 
 #Preview {
-    EditMemberModal()
+    EditMemberModal(member: .constant(Member(name: "이수지", nickname: "sujilee", mbti: "ENTJ", birthday: "1206", favoriteColor: "보라색", drinkingCapacity: "1병 반")))
 }

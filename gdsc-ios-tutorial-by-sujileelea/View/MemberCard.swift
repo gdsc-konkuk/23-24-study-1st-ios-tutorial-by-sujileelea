@@ -22,7 +22,7 @@ struct MemberCard: View {
                         .foregroundColor(.mainGray)
                 })
                 .popover(isPresented: $isShowing) {
-                    EditMemberModal()
+                    EditMemberModal(member: .constant(Member(name: "이수지", nickname: "sujilee", mbti: "ENTJ", birthday: "1206", favoriteColor: "보라색", drinkingCapacity: "1병 반")))
                 }
             }
             .padding()
