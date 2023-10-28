@@ -14,6 +14,7 @@ struct MemberInfo: Identifiable {
 }
 
 struct EditMemberModal: View {
+    @Environment(\.dismiss) private var dismiss
     
     let questions: [String] = ["이름", "닉네임", "MBTI", "생일", "좋아하는 색", "주량"]
     @Binding var member: Member
@@ -23,9 +24,14 @@ struct EditMemberModal: View {
             // 저장 버튼
             HStack {
                 Spacer()
-                Text("저장")
-                    .font(.system(size: 21))
-                    .foregroundStyle(Color(uiColor: UIColor(red: 0.32, green: 0.57, blue: 0.71, alpha: 1)))
+                Button(action: {
+                    dismiss()
+                }, label: {
+                    Text("저장")
+                        .font(.system(size: 21))
+                        .foregroundStyle(Color(uiColor: UIColor(red: 0.32, green: 0.57, blue: 0.71, alpha: 1)))
+                })
+                
             }
             
             // 프로필 사진
