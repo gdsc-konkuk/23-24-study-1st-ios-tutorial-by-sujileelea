@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-struct MemberInfo: Identifiable {
-    var id: String { question }
-    let question: String
-    let answer: String
-}
-
 struct EditMemberModal: View {
     @Environment(\.dismiss) private var dismiss
     

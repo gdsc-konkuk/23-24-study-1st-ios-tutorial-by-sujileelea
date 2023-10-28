@@ -10,7 +10,7 @@ import UIKit
 
 struct ContentView: View {
     var body: some View {
-        EntryView_Sample()
+        EntryView()
     }
 }
 
