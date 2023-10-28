@@ -31,9 +31,9 @@ struct EditMemberModal: View {
                 }, label: {
                     Text("저장")
                 })
-                .padding(.top, 30)
-                .padding(.trailing, 20)
             }
+            .padding(.top, 60)
+            .padding(.trailing, 20)
             Spacer()
             // Image Box
             Image("profile_image")
@@ -100,6 +100,9 @@ struct EditMemberModal: View {
                         .frame(width: 200)
                         .foregroundColor(.mainGray)
                         .font(.system(size: 20))
+//                        .onChange(of: textBinding.wrappedValue) { newValue, _ in
+//                            textBinding.wrappedValue = newValue // 값을 업데이트
+//                        }
                     Rectangle()
                         .frame(width: 200, height: 0.5)
                 }
