@@ -64,12 +64,12 @@ struct EditMemberModal: View {
             // 가로 정렬된 HStack을 겹겹히 쌓을 것
             HStack {
                 VStack(spacing: 44) {
-                    CustomTextField(content: "이름", textBinding: $name)
-                    CustomTextField(content: "닉네임", textBinding: $nickname)
-                    CustomTextField(content: "MBTI", textBinding: $mbti)
-                    CustomTextField(content: "생일", textBinding: $birthday)
-                    CustomTextField(content: "좋아하는 색", textBinding: $favoriteColor)
-                    CustomTextField(content: "주량", textBinding: $drinkingCapacity)
+                    CustomTextField(question: "이름", inputText: $name)
+                    CustomTextField(question: "닉네임", inputText: $nickname)
+                    CustomTextField(question: "MBTI", inputText: $mbti)
+                    CustomTextField(question: "생일", inputText: $birthday)
+                    CustomTextField(question: "좋아하는 색", inputText: $favoriteColor)
+                    CustomTextField(question: "주량", inputText: $drinkingCapacity)
                 }
             }
             .font(.system(size: 20))
@@ -86,17 +86,17 @@ struct EditMemberModal: View {
     }
     
     @ViewBuilder
-    func CustomTextField(content: String, textBinding: Binding<String>) -> some View {
+    func CustomTextField(question: String, inputText: Binding<String>) -> some View {
         HStack {
             VStack {
-                Text(content)
+                Text(question)
                     .font(.system(size: 21, weight: .semibold))
                     .foregroundStyle(.mainPurple)
             }
             HStack {
                 Spacer()
                 VStack {
-                    TextField("", text: textBinding)
+                    TextField("", text: inputText)
                         .frame(width: 200)
                         .foregroundColor(.mainGray)
                         .font(.system(size: 20))

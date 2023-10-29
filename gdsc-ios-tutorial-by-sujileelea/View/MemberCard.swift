@@ -41,7 +41,7 @@ struct MemberCard: View {
                         .padding(.trailing, 30)
                         .padding(.top, 30)
                         Spacer()
-                        Image("profile_image") // Asset을 Member 객체에 static하게 넣을 수는 없을까?
+                        Image(Member().profile) // Asset을 Member 객체에 static하게 넣을 수는 없을까?
                             .resizable()
                             .scaledToFit()
                             .frame(width: 206, height: 206)

@@ -14,4 +14,5 @@ struct Member {
     var birthday: String = "000801"
     var favoriteColor: String = "하늘색"
     var drinkingCapacity: String = "1병 반"
+    var profile: String = "profile_image"
 }
